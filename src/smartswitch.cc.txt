@@ -1,0 +1,74 @@
+/**
+ * @file smartswitch.cc
+ * @author Team-30 Vartik, Reshma, Rohith, Sruthi, Ranjit, Bhavana
+ * @brief 
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+#include "smartswitch.h"
+Switch :: Switch():Electronic_Components()
+{
+};
+Electronic_Components :: Electronic_Components():ChooseFan(0),ChooseLight(0),ChooseFridge(0)
+{
+};
+unsigned short Electronic_Components :: Decryption(unsigned short input) //Implementing Decryption
+{
+    if(input>0 && input<33)
+{
+        return 0;
+    }
+    else if(input>=33 && input<66)
+{
+        return 1;
+    }
+    else if(input>=66 && input<99)
+{
+        return 2;
+    }
+
+    else if(input>=99 && input<132)
+{
+        return 3;
+    }
+ return 5;
+}
+
+SmartSwitch inputstr(const string& str)
+{
+    if(str == "light" || str == "Light" || str == "LIGHT") return Light;
+    else if(str == "fan" || str == "Fan" || str == "FAN") return Fan;
+    else if(str == "fridge" || str == "Fridge" || str == "FRIDGE") return Fridge;
+    else if(str == "STATE" || str == "State" || str == "state") return State;
+    else if(str == "exit" || str == "EXIT") return Exit;
+    return retype;
+ }
+
+unsigned short Switch :: DataEncryption(unsigned short input) //Encryption
+{
+     unsigned short temp=0;
+    if(input == 0)
+{
+        temp = 1 + rand()%33; 
+        return temp;
+    }
+    else if (input == 1)
+{
+        temp = 34 + rand()%33; 
+        return temp;
+    }
+    else if (input == 2)
+{
+        temp = 67 + rand()%33; 
+        return temp;
+    }
+    else if (input == 3)
+{
+        temp = 100 + rand()%33;
+        return temp;
+    }
+    return temp;
+}

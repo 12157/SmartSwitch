@@ -1,0 +1,164 @@
+/**
+ * @file main.cc
+ * @author Team-30 Vartik, Resma, Rohith, Sruthi, Ranjit, Bhavana
+ * @brief 
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+#include"smartswitch.h" 
+int main()
+{ 
+    Electronic_Components obj;       
+    string UserInput;                 
+    Switch s_object;                 
+    int check;                       
+    int temp;                        
+    int s;                           
+ while (1)   
+ {  
+    cout<<"\n\n **Enter the electronic components name to control it.**\nComponents: \n- Light\n- Fan\n- Fridge\n";
+    cout<<"\n**Enter 'state' to see the current status of electronic components.**\n";
+    cout<<endl;
+    
+    cin>>UserInput;          
+    SmartSwitch Selection = inputstr(UserInput);
+
+    switch (Selection)  
+    {
+    case Light: 
+    cout<<"\n Choose: \n\n '0' to Turn OFF the Light \n\n '1' to Power ON the Light \n\n >>";  
+    cin>>s; 
+    if(s>0)
+    {
+        cout<<"\n Light turn ON \n";
+        cout<<"\n Brightness Adjust Level:\n 0. Idle \n 1. Low \n 2. Medium \n 3. High \n";
+        cin>>temp; 
+        check = s_object.DataEncryption(temp);         //Implementing Encryption
+        check = obj.Decryption(check);                 //Implementing Decryption
+        s_object.ChooseLight = check;     
+        if(temp ==1)
+        {
+           cout<< "\n The light's brightness has been set to LOW.\n";
+        }
+        else if(temp ==2)
+        {
+            cout<< "\n The light's brightness has been set to MEDIUM.\n";
+        }
+        else if(temp ==3)
+        {
+            cout<< "\n The light's brightness has been set to HIGH.\n";
+        }
+        else
+        {
+            cout<< "\n Light turn ON & IDLE \n\n";
+        }
+        cout<<"\n Please choose from the menu options.\n";
+        cout<<"\n Otherwise, enter exit.\n";
+        break;
+         }
+    else
+    {
+        cout<<"\n Light turned OFF \n\n";
+        break;
+    }
+    
+    case Fan: 
+    cout<<"\n Please Select: \n\n '0' to Turn OFF the Fan \n\n '1' to Power ON the Fan \n\n >>";   
+    cin>>s; 
+    if(s>0)
+    {
+        cout<<"\n Fan turn ON \n";
+        cout<<"\n Speed Adjust Levels:\n 0. Idle \n 1. Low \n 2. Medium \n 3. High \n";
+        cin>>temp;
+        check = s_object.DataEncryption(temp);       //Implementing Encryption
+        check = obj.Decryption(check);               //Implementing Decryption
+        s_object.ChooseFan = check;              
+       if(temp ==1)
+        {
+           cout<< "\n The Fan's speed has been set to LOW.\n";
+        }
+        else if(temp ==2)
+        {
+            cout<< "\n The Fan's speed has been set to MEDIUM.\n";
+        }
+        else if(temp ==3)
+        {
+            cout<< "\n The Fan's speed has been set to HIGH.\n";
+        }
+        else
+        {
+            cout<< "\n Fan turn ON & IDLE\n\n";
+        }
+        cout<<"\n Please choose from the menu options.\n";
+        cout<<"\n Otherwise, enter exit.\n";
+        break;
+    }
+    else
+    {
+        cout<<"\n Fan turned OFF \n\n";
+        break;
+    }
+ 
+    case Fridge: 
+     cout<<"\n Please Select: \n\n '0' to Turn OFF the Fridge \n\n '1' to Power ON the Fridge \n\n>>"; 
+    cin>>s; 
+    if(s>0)
+    {
+        cout<<"\n Fridge turn ON \n";
+         cout<<"\n Temperature Adjust Levels:\n 0. Idle \n 1. Winter \n 2. Summer \n 3. Super Chill \n";
+        cin>>temp; 
+        check = s_object.DataEncryption(temp);             //Implementing Encryption
+        check = obj.Decryption(check);                     //Implementing Decryption
+        s_object.ChooseFridge = check;                 
+        if(temp == 1 )
+        {
+           cout<< "\n The Fridge temperature has been set to Winter.\n";
+        }
+        else if(temp == 2)
+        {
+            cout<< "\n The Fridge temperature has been set to Summer.\n";
+        }
+        else if(temp == 3)
+        {
+            cout<< "\n The Fridge temperature has been set to Super Chill.\n";
+        }
+        else
+        {
+            cout<< "\n Fridge turn ON & IDLE \n\n";
+        }
+        cout<<"\n Please choose from the menu options.\n";
+        cout<<"\n Otherwise, enter exit.\n";
+        break;
+         }
+    else
+    {
+        cout<<"\n Fridge turned OFF \n\n";
+        break;
+    }
+ 
+    case State: 
+        cout<<"\n State of the Components:\n";       
+        cout<<"\n Brightness of Light:" <<s_object.ChooseLight<<"\n Speed of fan = " <<s_object.ChooseFan<<"\n Temperature of Fridge = " <<s_object.ChooseFridge<<endl;
+        cout<<"\n '0' Not Functional \n '1' Low \n '2' Medium \n '3' High \n ";
+        cout<<"\n Please choose from the menu options.\n";
+        cout<<"\n Otherwise, enter exit.\n";
+        break;
+
+    case retype: 
+        cout<<"\n Wrong Selection, Please Re-Check the options\n";
+        cout<<"\n Please choose from the menu options.\n";
+        cout<<"\n Otherwise, enter exit.\n";
+        break;
+
+    case Exit: 
+        exit(0);
+        break;
+
+    default: 
+        break;
+    }
+    }
+}

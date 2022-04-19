@@ -1,0 +1,47 @@
+/**
+ * @file smartswitch.h
+ * @author Team-30 Vartik, Reshma, Rohith, Sruthi, Ranjit, Bhavana
+ * @brief 
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+#ifndef __SMARTSWITCH_H
+#define __SMARTSWITCH_H
+#include <iostream>
+using namespace std;
+#include<string>
+#include<cstdlib>  
+
+enum SmartSwitch            
+ {
+  Light,
+  Fan,
+  Fridge,
+  State,
+  Exit,
+  retype
+};
+SmartSwitch inputstr(const string& str); 
+ class Electronic_Components
+{
+  public:
+   unsigned short ChooseFan;
+   unsigned short ChooseLight;
+   unsigned short ChooseFridge; 
+   unsigned short Decryption(unsigned short);
+
+  Electronic_Components();
+  const void display();
+  ~Electronic_Components(){};
+};
+class Switch: public Electronic_Components{ 
+  public:
+  unsigned short DataEncryption(unsigned short);
+  //void indata(unsigned short);
+  Switch();
+  ~Switch(){};
+};
+#endif

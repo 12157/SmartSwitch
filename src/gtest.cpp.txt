@@ -1,0 +1,13 @@
+#include <string.h>
+ #include <iostream>
+ #include <gtest/gtest.h>
+ #include"smartswitch.h"
+
+ namespace {
+ TEST(Encryption, encryption_check) {
+   EXPECT_EQ(29, s_object.DataEncryption(0));
+   EXPECT_EQ(44, s_object.DataEncryption(1));
+   EXPECT_EQ(73, s_object.DataEncryption(2));
+   EXPECT_EQ(113, s_object.DataEncryption(3));
+ }
+ }
